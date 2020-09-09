@@ -10,4 +10,4 @@ Terminal commands for running code
 ==================================
 
 - Splitting a given audio file in samples by their onset detection
->  python Lib/sampleAudio.py -type onset -au <wav file location> -o <output folder location>
+>  python Lib/sampleAudio.py -type onset -au "wav file location" -o "output folder location"
