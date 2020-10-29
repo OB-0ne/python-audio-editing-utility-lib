@@ -60,7 +60,7 @@ y_val = [i[1] for i in X]
 
 ## Perform a clustering method get labels for 2d tSNE data
 
-n_cluster_tsne2kmeans = 6
+n_cluster_tsne2kmeans = 8
 
 X = [[x,y] for x,y in zip(x_val,y_val)]
 
@@ -71,7 +71,7 @@ cluster_labels = kmeans.labels_
 
 ## Combine 10 samples for form clustering
 div_variable = 36
-n_cluster_form = 5
+n_cluster_form = 3
 if len(cluster_labels)%div_variable > 0:
     X_new = np.array(cluster_labels[:-(len(cluster_labels)%div_variable)]).reshape(-1,div_variable)
 else:
