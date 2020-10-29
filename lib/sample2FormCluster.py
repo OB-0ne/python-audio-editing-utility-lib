@@ -109,6 +109,8 @@ def sample2FormCluster(audio_filename, cluster_outputs=False, form_outputs=False
     sr = 22050                  # CHANGE for sampliung wave at a different rate
     timbre_seconds = 0.2        # CHANGE for timbre analysis
     form_bundle = 12            # CHANGE for form analysis bundling
+    n_timbre_cluster = 12
+    n_form_cluster = 3
     
     # calculate the samples needed for timbre analysis
     n_fft = int(sr * timbre_seconds)
@@ -120,12 +122,12 @@ def sample2FormCluster(audio_filename, cluster_outputs=False, form_outputs=False
     features = samples2tSNE(samples)
 
     # cluster the t-SNE points to get similar timbre samples
-    sample_labels = samples2Cluster(features, 12)
+    sample_labels = samples2Cluster(features, n_timbre_cluster)
     
     # form larger bundled samples, and cluster them to recognize similar forms
     form_input = np.array(sample_labels[:-(len(sample_labels)%form_bundle)]).reshape(-1,form_bundle)
     form_start_time = [sample_time[i] for i in range(len(sample_time)) if i % form_bundle == 0][:-1]
-    form_labels = samples2Cluster(form_input, 3)
+    form_labels = samples2Cluster(form_input, n_form_cluster)
 
     # get the form with their corresponding time
     formWithTime(form_labels, form_start_time)
