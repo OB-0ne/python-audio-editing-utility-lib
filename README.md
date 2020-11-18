@@ -13,7 +13,23 @@ Terminal commands for running code
 >  python Lib/sampleAudio.py -type onset -au "wav file location" -o "output folder location"
 
 
+Timbre Labeling for .wav file
+=============================
 
+- Open the 'sample2FormCluster.py' file, go to the end and change the needed settings
+- run the following command
+>  python lib/sample2FormCluster.py
+- folder should be created with the the files
+
+File created:
+- 'cluster_samples' - has all cluster samples
+- 'cluster_samples' - has all form combined as samples
+- 'audio_beeped' - audio file of the input with clicks will be generated to identify form
+- 'form_no_by_seconds' - seconds to identify each form in the original samples (seconds when cick is played)
+- 'offset_cluster_tsne' - image of the clustered tSNE
+
+<!-- 
+---------OLD----------------
 Timbre Labeling for wav file
 ============================
 
@@ -22,16 +38,4 @@ Timbre Labeling for wav file
 
 - all onset files should be in the 'onset_sample' folder
 - run the following command
->  python lib/timbreLabel.py
-
-
-Timbre Labeling for .wav file
-=============================
-
-- Open the 'sample2FormCluster.py' file, go to the end and change the file name
-- run the following command
->  python lib/sample2FormCluster.py
-- outputs should be available in the 'output_samples' folder
-- 'cluster_outputs' helps to set if outputs for each clusters is to be generated as wav files
-- 'form_outputs' helps to set if outputs for each clustered form is to be generated as wav files
-- an audio file of the input with clicks will be generated to identify form
+>  python lib/timbreLabel.py -->
